@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_linear_layout_manager"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="LinearLayoutManager"/>
+        <item
+            android:id="@+id/nav_grid_layout_manager"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="GridLayoutManager"/>
+        <item
+            android:id="@+id/nav_staggered_grid_layout_manager"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="StaggeredGridLayoutManager"/>
+    </group>
+
+</menu>
