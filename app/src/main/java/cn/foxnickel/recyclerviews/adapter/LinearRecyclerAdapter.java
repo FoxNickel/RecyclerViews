@@ -39,9 +39,15 @@ public class LinearRecyclerAdapter extends RecyclerView.Adapter<LinearRecyclerAd
 
     /*数据绑定到ViewHolder*/
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         Meizi meizi = mMeiziList.get(position);
         Picasso.with(mContext).load(meizi.getImageUrl()).into(holder.mImageView);
+        holder.mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext,"You clicked item "+holder.getAdapterPosition(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /*item的数量，一般就是数据List的大小*/

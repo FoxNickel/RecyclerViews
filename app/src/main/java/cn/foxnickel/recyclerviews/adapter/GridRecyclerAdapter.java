@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -35,9 +36,15 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         Meizi meizi = mMeiziList.get(position);
         Picasso.with(mContext).load(meizi.getImageUrl()).into(holder.mImageView);
+        holder.mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext,"You clicked item "+holder.getAdapterPosition(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -52,6 +59,12 @@ public class GridRecyclerAdapter extends RecyclerView.Adapter<GridRecyclerAdapte
         ViewHolder(View itemView) {
             super(itemView);
             mImageView = (ImageView) itemView.findViewById(R.id.iv_meizi);
+            /*mImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext,"You clicked item "+getAdapterPosition(),Toast.LENGTH_SHORT).show();
+                }
+            });*/
         }
     }
 }
