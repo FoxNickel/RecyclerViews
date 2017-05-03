@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import cn.foxnickel.recyclerviews.fragment.GridRecyclerFragment;
 import cn.foxnickel.recyclerviews.fragment.LinearRecyclerFragment;
+import cn.foxnickel.recyclerviews.fragment.StaggeredRecyclerFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -93,6 +94,8 @@ public class MainActivity extends AppCompatActivity
             transaction.commit();
         } else if (id == R.id.nav_staggered_grid_layout_manager) {
             Snackbar.make(mDrawerLayout,"StaggeredRecycler",Snackbar.LENGTH_SHORT).show();
+            transaction.replace(R.id.content_main, StaggeredRecyclerFragment.newInstance());
+            transaction.commit();
         }
 
         mDrawerLayout.closeDrawer(GravityCompat.START);
